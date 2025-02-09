@@ -1,0 +1,13 @@
+<main>
+  <h1>Seja bem-vindo a Loja Tal</h1>
+
+  @if (loading()) {
+  <p>Carregando...</p>
+  }
+
+  <div class="products__list">
+    @for (item of productsList()?.products; track $index) {
+    <app-product-item [product]="item" />
+    }
+  </div>
+</main>
