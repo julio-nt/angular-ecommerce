@@ -1,0 +1,30 @@
+.top__container {
+  display: flex;
+  gap: 1rem;
+}
+
+.display__image {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail__image {
+  width: 100px;
+}
+
+.images__container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 20px;
+
+  img {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

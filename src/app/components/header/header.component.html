@@ -1,7 +1,16 @@
 <header>
   <nav>
     <ul>
-      <li>Início</li>
+      <li routerLink="/" (click)="homeClicked()">Início</li>
+      <div>
+        <input
+          name="searchTerm"
+          type="text"
+          [value]="searchTerm()"
+          [(ngModel)]="searchTerm"
+        />
+        <button (click)="searchProducts()">Buscar</button>
+      </div>
     </ul>
   </nav>
 </header>

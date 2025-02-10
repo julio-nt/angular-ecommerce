@@ -16,6 +16,14 @@
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
+  }
+
+  h2 {
+    cursor: pointer;
+    &:hover {
+      /* color: rgb(48, 47, 0); */
+    }
   }
 
   .price {

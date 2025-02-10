@@ -1,6 +1,11 @@
 <div class="products__card">
-  <img src="{{ product().images[0] }}" />
-  <h2>{{ product().title }}</h2>
-  <p>{{ product().description }}</p>
+  <img
+    src="{{ product().images[0] }}"
+    routerLink="/produto/{{ product().id }}"
+  />
+  <div>
+    <h2 routerLink="/produto/{{ product().id }}">{{ product().title }}</h2>
+    <p>{{ product().description }}</p>
+  </div>
   <p class="price">{{ product().price }}</p>
 </div>

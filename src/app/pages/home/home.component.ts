@@ -1,8 +1,17 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  effect,
+  inject,
+  OnChanges,
+  OnInit,
+  signal,
+  SimpleChanges,
+} from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { catchError } from 'rxjs';
 import { ProductApiModel } from '../../models/product.type';
 import { ProductItemComponent } from '../../components/product-item/product-item.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,19 +24,15 @@ export class HomeComponent implements OnInit {
   productsService = inject(ProductsService);
   productsList = signal<ProductApiModel | undefined>(undefined);
 
+  constructor(private route: ActivatedRoute) {
+    effect(() => {
+      this.loading.set(true);
+      this.productsList.set(this.productsService.searchResults());
+      this.loading.set(false);
+    });
+  }
+
   ngOnInit(): void {
-    this.productsService
-      .getProductsList()
-      .pipe(
-        catchError((err) => {
-          console.error(err);
-          this.loading.set(false);
-          throw err;
-        })
-      )
-      .subscribe((data) => {
-        this.productsList.set(data);
-        this.loading.set(false);
-      });
+    this.productsService.getProductsList();
   }
 }

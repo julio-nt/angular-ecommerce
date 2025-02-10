@@ -1,3 +1,31 @@
-<p>product works!</p>
+@if (loading()) {
+<p>Carregando...</p>
+}
 
-<p>{{ currentProduct()?.title }}</p>
+<section class="top__container">
+  <div>
+    <img src="{{ displayImage() }}" class="display__image" />
+    <div class="images__container">
+      @for (item of currentProduct()?.images; track $index) {
+      <img
+        src="{{ item }}"
+        class="thumbnail__image"
+        width="30"
+        height="120"
+        (click)="handleImageClick(item)"
+      />
+      }
+    </div>
+  </div>
+  <div>
+    <h2>{{ currentProduct()?.title }}</h2>
+    <p>{{ currentProduct()?.description }}</p>
+    <p>{{ currentProduct()?.price }}</p>
+    <div>
+      <button (click)="handleQuantity('remove')">-</button>
+      <input type="number" [value]="quantity()" />
+      <button (click)="handleQuantity('add')">+</button>
+    </div>
+    <button>Adicionar ao carrinho</button>
+  </div>
+</section>
