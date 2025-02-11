@@ -6,6 +6,9 @@ nav {
 
   ul {
     list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 90%; */
 
     li {
       cursor: pointer;
@@ -14,4 +17,8 @@ nav {
       }
     }
   }
+}
+
+.search__container {
+  margin-left: auto;
 }

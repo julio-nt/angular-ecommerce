@@ -1,11 +1,12 @@
 .top__container {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .display__image {
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -13,6 +14,8 @@
 
 .thumbnail__image {
   width: 100px;
+  border: 1px solid black;
+  border-radius: 2px;
 }
 
 .images__container {
@@ -27,4 +30,9 @@
       opacity: 0.7;
     }
   }
+}
+
+.info__container {
+  display: block;
+  max-width: 500px;
 }
