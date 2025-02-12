@@ -22,12 +22,21 @@
       <h2>{{ currentProduct()?.title }}</h2>
       <p>{{ currentProduct()?.description }}</p>
       <p>{{ currentProduct()?.price }}</p>
-      <div>
-        <button (click)="handleQuantity('remove')">-</button>
+      <div class="quantity__container">
+        <button
+          class="btn__quantity btn__minus"
+          (click)="handleQuantity('remove')"
+        >
+          -
+        </button>
         <input type="number" [value]="quantity()" />
-        <button (click)="handleQuantity('add')">+</button>
+        <button class="btn__quantity btn__plus" (click)="handleQuantity('add')">
+          +
+        </button>
       </div>
-      <button>Adicionar ao carrinho</button>
+      <button class="btn__addcart" (click)="addCart()">
+        Adicionar ao carrinho
+      </button>
     </div>
   </section>
 </div>

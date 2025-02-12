@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { FormsModule } from '@angular/forms';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +11,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  searchTerm = signal('');
   productsService = inject(ProductsService);
+  cartService = inject(CartService);
+  searchTerm = signal('');
 
   searchProducts() {
     this.productsService.searchProduct(this.searchTerm());

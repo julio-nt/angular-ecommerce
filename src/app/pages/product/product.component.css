@@ -36,3 +36,38 @@
   display: block;
   max-width: 500px;
 }
+
+.quantity__container {
+  display: flex;
+}
+
+.btn__quantity {
+  padding: 0.2rem;
+  font-size: 1.2rem;
+}
+
+.btn__minus {
+  /* background-color: red;
+  border: 1px solid red; */
+  /* color: white; */
+}
+
+input {
+  padding: 0.4rem;
+  /* border: 1px solid gainsboro; */
+}
+
+.btn__addcart {
+  background-color: rgb(100, 200, 200);
+  text-transform: uppercase;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
