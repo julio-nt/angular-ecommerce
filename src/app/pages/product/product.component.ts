@@ -9,10 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { ProductModel } from '../../models/product.type';
 import { CartService } from '../../services/cart.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
 })
@@ -70,7 +71,16 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  handleQuantity(type: 'add' | 'remove') {
+  handleQuantity(type: 'add' | 'remove' | number) {
+    console.log(type);
+    if (typeof type === 'number') {
+      if (type <= 0) {
+        this.quantity.set(1);
+        return;
+      }
+      this.quantity.set(type);
+    }
+
     if (type === 'add') {
       this.quantity.update((val) => val + 1);
     } else if (type === 'remove') {

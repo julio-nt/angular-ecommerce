@@ -59,6 +59,11 @@
   margin-top: 1rem;
 }
 
+.price__total {
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
 .quantity__container {
   display: flex;
 }

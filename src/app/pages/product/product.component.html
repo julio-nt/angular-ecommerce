@@ -21,7 +21,7 @@
     <div class="info__container">
       <h2 class="product__name">{{ currentProduct()?.title }}</h2>
       <p>{{ currentProduct()?.description }}</p>
-      <p class="price">{{ currentProduct()?.price }}</p>
+      <p class="price">R$ {{ currentProduct()?.price }}</p>
       <div class="quantity__container">
         <button
           class="btn__quantity btn__minus"
@@ -29,11 +29,17 @@
         >
           -
         </button>
-        <input type="number" [value]="quantity()" />
+        <input type="number" [value]="quantity()" [(ngModel)]="quantity" />
         <button class="btn__quantity btn__plus" (click)="handleQuantity('add')">
           +
         </button>
       </div>
+      @if (quantity() > 1) {
+      <p class="price__total">
+        Valor Total: R$
+        {{ ((currentProduct()?.price || 0) * quantity()).toFixed(2) }}
+      </p>
+      }
       <button class="btn__addcart" (click)="addCart()">
         Adicionar ao carrinho
       </button>
