@@ -11,7 +11,7 @@
         />
         <button (click)="searchProducts()">Buscar</button>
       </div>
-      <li>Carrinho ( {{ cartService.cart().length }} )</li>
+      <li>Carrinho ( {{ cartService.quantityTotal() }} )</li>
     </ul>
   </nav>
 </header>

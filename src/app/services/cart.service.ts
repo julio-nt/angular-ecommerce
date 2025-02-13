@@ -6,7 +6,7 @@ import { ProductModel } from '../models/product.type';
 })
 export class CartService {
   cart = signal<{ product: ProductModel; quantity: number }[]>([]);
-  // reduce da quantidade total
+  quantityTotal = signal<number>(0);
 
   addToCart(item: ProductModel, quantity: number) {
     const productExists = this.cart().find(
@@ -26,12 +26,16 @@ export class CartService {
         );
 
       this.cart.set(newArr);
-      console.log('Carrinho atual: ', this.cart());
-      return;
     }
 
-    this.cart().push({ product: item, quantity });
-    console.log('Carrinho atual: ', this.cart());
+    if (!productExists) {
+      this.cart().push({ product: item, quantity });
+    }
+
+    this.quantityTotal.set(
+      this.cart().reduce((acc, item) => acc + item.quantity, 0)
+    );
+    console.log('Carrinho atual: ', this.cart(), this.quantityTotal());
   }
 
   removeFromCart(id: number) {

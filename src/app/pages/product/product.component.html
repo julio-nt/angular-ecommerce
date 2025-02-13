@@ -4,7 +4,7 @@
 
 <div class="page__container">
   <section class="top__container">
-    <div>
+    <div class="display__container">
       <img src="{{ displayImage() }}" class="display__image" />
       <div class="images__container">
         @for (item of currentProduct()?.images; track $index) {
@@ -19,9 +19,9 @@
       </div>
     </div>
     <div class="info__container">
-      <h2>{{ currentProduct()?.title }}</h2>
+      <h2 class="product__name">{{ currentProduct()?.title }}</h2>
       <p>{{ currentProduct()?.description }}</p>
-      <p>{{ currentProduct()?.price }}</p>
+      <p class="price">{{ currentProduct()?.price }}</p>
       <div class="quantity__container">
         <button
           class="btn__quantity btn__minus"
