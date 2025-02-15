@@ -7,7 +7,7 @@
 
   <div class="products__list">
     @for (item of productsList()?.products; track $index) {
-    <app-product-item [product]="item" />
+    <app-product-item [product]="item" class="products__card" />
     }
   </div>
 </main>

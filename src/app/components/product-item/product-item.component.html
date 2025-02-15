@@ -8,4 +8,10 @@
     <p>{{ product().description }}</p>
   </div>
   <p class="price">{{ product().price }}</p>
+  <div class="btn__container">
+    <button class="btn__seeproduct" routerLink="/produto/{{ product().id }}">
+      VER PRODUTO
+    </button>
+    <button class="btn__addtocart">ADICIONAR AO CARRINHO</button>
+  </div>
 </div>
